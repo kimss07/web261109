@@ -1,0 +1,264 @@
+:root {
+  --bg: #141e30;
+  --surface: #1f2b44;
+  --text: #f5f5f7;
+  --accent: #4da3ff;
+  --warn: #ff5a5f;
+  --font-title: "Black Han Sans", sans-serif;
+  --font-body: "Noto Sans KR", sans-serif;
+  --gap: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+header {
+  background-color: var(--surface);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+header h1 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+}
+
+header nav a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+              url("https://image.tmdb.org/t/p/w1280/4tjxYg2AbOzzG9G1YuiT2NzYhlH.jpg") center/cover no-repeat;
+  height: 30vh;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-content h2 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.hero-content p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.basis {
+  font-size: 0.85rem;
+  color: rgba(245, 245, 247, 0.6);
+  margin-bottom: 16px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+
+.card {
+  background-color: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+}
+
+.card .poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+}
+
+.card .info {
+  padding: 16px;
+}
+
+.card .info h3 {
+  font-size: 1.1rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card .info .year,
+.card .info .audience {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.card .rank {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--warn);
+  color: var(--text);
+  font-weight: bold;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.card .badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: var(--accent);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.card .change {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.change.up {
+  color: var(--warn);
+}
+.change.up::before {
+  content: "▲ ";
+}
+
+.change.down {
+  color: var(--accent);
+}
+.change.down::before {
+  content: "▼ ";
+}
+
+.change.new {
+  color: var(--warn);
+}
+.change.new::before {
+  content: "NEW ";
+}
+
+footer {
+  background-color: var(--surface);
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer p {
+  margin-bottom: 6px;
+}
+
+@media (min-width: 600px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+.detail-info dl {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detail-info dt {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.detail-info dd {
+  color: var(--text);
+  margin-left: 0;
+  line-height: 1.6;
+}
+@media (min-width: 1024px) {
+  .hero {
+    height: 60vh;
+  }
+
+  .board {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+}
