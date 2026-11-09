@@ -2,6 +2,38 @@ const titles = ["스파이더맨: 브랜드 뉴 데이", "스파이더맨: 홈�
 const ratings = [8.4, 7.3, 6.7, 8.4, 7.9];
 const years = [2026, 2017, 2012, 2018, 2021];
 
+//즉시 실행 함수 만들기
+(function init(){
+    console.log("나는 함수다. 실행이 되었다.");
+})();
+//선언문으로 함수 정의하기
+const gugudan = function(dan){
+    for(let i=1;i<=9;i++){
+        console.log(`${dan} x ${i} = ${dan*i}`);
+    }
+}
+
+gugudan(7);
+
+const add = function(num1, num2){
+    return num1 + num2;
+}
+console.log(add(1234,5678));
+
+//화살표함수로 함수 정의하기
+const gugudan1 = dan => {
+    for(let i=1;i<=9;i++){
+        console.log(`${dan} x ${i} = ${dan*i}`);
+    }
+}
+
+gugudan(7);
+
+const add1 = (num1, num2) => num1 + num2;
+console.log(add1(1234,5678));
+
+
+
 let sum = 0;
 for (let i = 0; i < ratings.length; i++) {
     sum = sum + ratings[i];
